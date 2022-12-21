@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "992300754397",
+    "project_id": "virtual-clothes-e8a7a",
+    "storage_bucket": "virtual-clothes-e8a7a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:992300754397:android:1686eeb50705b67f53c234",
+        "android_client_info": {
+          "package_name": "com.qr_shopping"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "992300754397-99689c41uqkpal1v0lavd8i2e2sr3qa7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.qr_shopping",
+            "certificate_hash": "ba52c42294433cbeb98085e5ac46ce817e65afb4"
+          }
+        },
+        {
+          "client_id": "992300754397-bggaba3sviohriai7okrgm29s4h46gie.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGYNY0ZwI3qgBXP2gfJkj_PCw9sWvxj1c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "992300754397-bggaba3sviohriai7okrgm29s4h46gie.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
