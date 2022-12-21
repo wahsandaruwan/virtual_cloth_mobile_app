@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {
   Text,
   View,
+  SafeAreaView,
   TouchableOpacity,
   Alert,
   StyleSheet,
@@ -13,18 +14,16 @@ import {RNCamera} from 'react-native-camera';
 import {style} from 'deprecated-react-native-prop-types/DeprecatedViewPropTypes';
 
 const QRScreen = ({navigation}) => {
-  // Cloth state
-  const [cloth, setCloth] = useState('');
-
-  const onSuccess = e => {
-    setCloth(e.data);
-  };
-
-  // Function to add clothes to virtual cart
-  const addToCart = clothId => {
+  // Function to view the particular cloth
+  const viewCloth = clothId => {
     navigation.navigate('ClothScreen', {
       clothId: clothId,
     });
+  };
+
+  // Function to view the particular cloth
+  const gotoUserClothes = () => {
+    navigation.navigate('UserClothesScreen');
   };
 
   // Function to logout
@@ -48,7 +47,7 @@ const QRScreen = ({navigation}) => {
               .catch(error => {
                 console.log(error);
                 if (error.code === 'auth/no-current-user') {
-                  navigation.navigate('Splash');
+                  navigation.navigate('LoginScreen');
                 } else {
                   alert(error);
                 }
@@ -61,7 +60,8 @@ const QRScreen = ({navigation}) => {
   };
 
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+    <SafeAreaView
+      style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Text
         style={{
           fontSize: 30,
@@ -87,9 +87,9 @@ const QRScreen = ({navigation}) => {
         <Text style={{fontSize: 18, color: '#000'}}>Logout</Text>
       </TouchableOpacity>
       <QRCodeScanner
-        onRead={e => addToCart(e.data)}
+        onRead={e => viewCloth(e.data)}
         flashMode={RNCamera.Constants.FlashMode.off}
-        reactivateTimeout={5000}
+        reactivateTimeout={2000}
         reactivate={true}
         showMarker={true}
         containerStyle={styles.contStyle}
@@ -97,6 +97,7 @@ const QRScreen = ({navigation}) => {
         cameraContainerStyle={styles.camConStyle}
       />
       <TouchableOpacity
+        onPress={() => gotoUserClothes()}
         style={{
           width: '40%',
           height: 40,
@@ -109,7 +110,7 @@ const QRScreen = ({navigation}) => {
         }}>
         <Text style={{fontSize: 18, color: '#000'}}>View Cart</Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 };
 

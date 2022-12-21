@@ -1,6 +1,13 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, TextInput, TouchableOpacity} from 'react-native';
+import {
+  Text,
+  View,
+  SafeAreaView,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
 import auth from '@react-native-firebase/auth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const LoginScreen = ({navigation}) => {
   // Login data states
@@ -20,8 +27,10 @@ const LoginScreen = ({navigation}) => {
 
     auth()
       .signInWithEmailAndPassword(email, password)
-      .then(user => {
-        console.log('User : ' + user);
+      .then(async user => {
+        // Set user email to local storage
+        await AsyncStorage.setItem('userEmail', email);
+
         setEmail('');
         setPassword('');
 
@@ -48,7 +57,8 @@ const LoginScreen = ({navigation}) => {
   };
 
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+    <SafeAreaView
+      style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Text
         style={{
           alignSelf: 'center',
@@ -110,7 +120,7 @@ const LoginScreen = ({navigation}) => {
         }}>
         Regster, If you don't have an account!
       </Text>
-    </View>
+    </SafeAreaView>
   );
 };
 

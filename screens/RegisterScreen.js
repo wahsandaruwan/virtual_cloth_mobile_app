@@ -1,7 +1,14 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, TextInput, TouchableOpacity} from 'react-native';
+import {
+  Text,
+  View,
+  SafeAreaView,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const RegisterScreen = ({navigation}) => {
   // Registration data states
@@ -39,7 +46,10 @@ const RegisterScreen = ({navigation}) => {
             name: name,
             email: email,
           })
-          .then(() => {
+          .then(async () => {
+            // Set user email to local storage
+            await AsyncStorage.setItem('userEmail', email);
+
             setName('');
             setEmail('');
             setPassword('');
@@ -70,7 +80,8 @@ const RegisterScreen = ({navigation}) => {
   };
 
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+    <SafeAreaView
+      style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Text
         style={{
           alignSelf: 'center',
@@ -146,7 +157,7 @@ const RegisterScreen = ({navigation}) => {
         }}>
         Login, If you have an account already!
       </Text>
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -6,6 +6,7 @@ import LoginScreen from './LoginScreen';
 import RegisterScreen from './RegisterScreen';
 import QRScreen from './QRScreen';
 import ClothScreen from './ClothScreen';
+import UserClothesScreen from './UserClothesScreen';
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,9 @@ const HomeScreen = () => {
         </Stack.Screen>
         <Stack.Screen name="ClothScreen" options={{headerShown: false}}>
           {props => <ClothScreen {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="UserClothesScreen" options={{headerShown: false}}>
+          {props => <UserClothesScreen {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
