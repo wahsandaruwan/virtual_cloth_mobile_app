@@ -71,6 +71,7 @@ const LoginScreen = ({navigation}) => {
       <TextInput
         value={email}
         placeholder="Enter email address"
+        placeholderTextColor="#464746"
         onChangeText={txt => setEmail(txt)}
         style={{
           width: '90%',
@@ -86,6 +87,7 @@ const LoginScreen = ({navigation}) => {
       <TextInput
         value={password}
         placeholder="Enter password"
+        placeholderTextColor="#464746"
         onChangeText={txt => setPassword(txt)}
         secureTextEntry={true}
         style={{
