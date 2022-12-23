@@ -80,6 +80,7 @@ const LoginScreen = ({navigation}) => {
           alignSelf: 'center',
           marginTop: 50,
           paddingHorizontal: 20,
+          color: '#000',
         }}
       />
       <TextInput
@@ -95,6 +96,7 @@ const LoginScreen = ({navigation}) => {
           alignSelf: 'center',
           marginTop: 10,
           paddingHorizontal: 20,
+          color: '#000',
         }}
       />
       <TouchableOpacity

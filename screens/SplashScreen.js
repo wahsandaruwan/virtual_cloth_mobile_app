@@ -17,7 +17,9 @@ const SplashScreen = ({navigation}) => {
         }}>
         Virtual Clothes
       </Text>
-      <Text style={{fontSize: 20, fontWeight: 'bold'}}>Loading...</Text>
+      <Text style={{fontSize: 20, fontWeight: 'bold', color: '#000'}}>
+        Loading...
+      </Text>
     </SafeAreaView>
   );
 };
