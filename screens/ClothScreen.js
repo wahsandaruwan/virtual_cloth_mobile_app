@@ -35,12 +35,14 @@ const ClothScreen = ({navigation, route}) => {
 
   // Function to get a cloth based on id
   const getCloth = () => {
+    console.log(route.params.clothId);
     firestore()
       .collection('Clothes')
       // Filter results
       .where('clothId', '==', route.params.clothId)
       .get()
       .then(querySnapshot => {
+        console.log(querySnapshot._docs[0]._data);
         setCloth(querySnapshot._docs[0]._data);
       });
   };
@@ -97,7 +99,11 @@ const ClothScreen = ({navigation, route}) => {
       style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <View style={{flexDirection: 'row'}}>
         <Image
-          style={{resizeMode: 'contain', flex: 1, aspectRatio: 1.5}}
+          style={{
+            resizeMode: 'contain',
+            flex: 1,
+            aspectRatio: 1.5,
+          }}
           source={{uri: cloth.image}}
         />
       </View>
